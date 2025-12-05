@@ -1,0 +1,371 @@
+
+/* General page styling */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+h1, h2 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+/* Form styling */
+form#appointment-form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+form#appointment-form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+form#appointment-form input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+form#appointment-form button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+form#appointment-form button:hover {
+  background-color: #2980b9;
+}
+
+/* Table styling */
+.appointments-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.appointments-table th,
+.appointments-table td {
+  text-align: left;
+  padding: 12px 15px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.appointments-table thead th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.appointments-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Status message */
+.appointments-status {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  form#appointment-form input,
+  form#appointment-form button {
+    font-size: 14px;
+  }
+
+  .appointments-table th,
+  .appointments-table td {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+
+/* ============================
+   MediHealth (NHS-style) theme
+   ============================
+   Typography uses NHS brand font with safe fallbacks.
+   Colours aligned to NHS Blue, neutrals, and focus state.
+   References: NHS Design System & Identity Guidelines.
+*/
+
+/* Base / page */
+:root {
+  /* Core NHS colours */
+  --nhs-blue: #005EB8;           /* links, accents */
+  --nhs-dark-blue: #003087;      /* headers, emphasis */
+  --nhs-bright-blue: #0072CE;    /* hover states */
+  --nhs-text: #212B32;           /* primary body text */
+  --nhs-secondary-text: #4C6272; /* secondary text */
+  --nhs-border: #D8DDE0;         /* subtle borders */
+  --nhs-bg: #F3F6F9;             /* soft page tint (grey-5 equivalent) */
+
+  /* States */
+  --nhs-focus: #FFEB3B;          /* distinctive yellow focus */
+  --nhs-error: #D5281B;          /* error red */
+  --nhs-success: #007F3B;        /* success green */
+
+  /* Components */
+  --card-bg: #FFFFFF;
+  --table-stripe: #F8FBFD;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  /* NHS typography: Frutiger with Arial fallback */
+  font-family: "Frutiger W01", Frutiger, Arial, sans-serif; /* Fallback to Arial if Frutiger not available */
+  /* Guidance: default to Arial when Frutiger isn’t available */
+  /* https://service-manual.nhs.uk/design-system/styles/typography */
+  color: var(--nhs-text);
+  background-color: var(--nhs-bg);
+  margin: 0;
+  padding: 24px;
+  line-height: 1.5;
+}
+
+/* Headings */
+h1, h2 {
+  color: var(--nhs-dark-blue);
+  margin: 0 0 12px 0;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 1.75rem; /* ~28px */
+}
+
+h2 {
+  font-size: 1.25rem; /* ~20px */
+  margin-top: 20px;
+}
+
+/* Links */
+a {
+  color: var(--nhs-blue);
+  text-decoration: underline; /* NHS default underlined links */
+}
+a:hover,
+a:focus {
+  color: var(--nhs-bright-blue);
+}
+
+/* Focus styles (AA) — the NHS yellow ring */
+:focus {
+  outline: 3px solid var(--nhs-focus);
+  outline-offset: 2px;
+}
+
+/* Containers / cards */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--nhs-border);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* ============================
+   Appointment form
+   ============================ */
+form#appointment-form {
+  background: var(--card-bg);
+  border: 1px solid var(--nhs-border);
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 680px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+form#appointment-form label {
+  display: block;
+  margin-top: 12px;
+  font-weight: 700;
+  color: var(--nhs-text);
+}
+
+form#appointment-form input[type="text"],
+form#appointment-form input[type="email"],
+form#appointment-form input[type="number"],
+form#appointment-form input[type="datetime-local"] {
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px 12px;
+  font-size: 1rem;
+  color: var(--nhs-text);
+  background: #fff;
+  border: 1px solid var(--nhs-border);
+  border-radius: 4px;
+}
+
+form#appointment-form input:focus {
+  border-color: var(--nhs-blue);
+  outline: 3px solid var(--nhs-focus);
+  outline-offset: 0; /* make the focus visible + accessible */
+}
+
+/* Helper text (if you add any) */
+.form-hint {
+  display: block;
+  margin-top: 4px;
+  color: var(--nhs-secondary-text);
+  font-size: 0.95rem;
+}
+
+/* Button */
+form#appointment-form button[type="submit"] {
+  margin-top: 16px;
+  padding: 10px 16px;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  background-color: var(--nhs-blue);
+  cursor: pointer;
+}
+form#appointment-form button[type="submit"]:hover {
+  background-color: var(--nhs-bright-blue);
+}
+form#appointment-form button[type="submit"]:focus {
+  outline: 3px solid var(--nhs-focus);
+}
+
+/* ============================
+   Status messages
+   ============================ */
+.appointments-status {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: var(--nhs-secondary-text);
+}
+
+.status--error {
+  color: var(--nhs-error);
+}
+
+.status--success {
+  color: var(--nhs-success);
+}
+
+/* ============================
+   Appointments table
+   ============================ */
+.appointments-table {
+  width: 100%;
+  border-collapse: separate;      /* allow rounded corners */
+  border-spacing: 0;
+  margin-top: 12px;
+  background: var(--card-bg);
+  border: 1px solid var(--nhs-border);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.appointments-table thead th {
+  text-align: left;
+  padding: 12px 16px;
+  background: #E8EEF4;           /* gentle blue-tinted header */
+  color: var(--nhs-dark-blue);
+  font-weight: 700;
+  border-bottom: 1px solid var(--nhs-border);
+}
+
+.appointments-table tbody td {
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--nhs-border);
+}
+
+.appointments-table tbody tr:nth-child(odd) td {
+  background: var(--table-stripe);
+}
+
+.appointments-table tbody tr:hover td {
+  background: #F2F8FC;           /* subtle hover */
+}
+
+/* Emphasise patient name */
+.appointments-table tbody td:first-child strong {
+  color: var(--nhs-text);
+  font-weight: 700;
+}
+
+/* Phone/Email wrapping */
+.appointments-table td {
+  word-break: break-word;
+}
+
+/* ============================
+   Utilities
+   ============================ */
+.u-muted {
+  color: var(--nhs-secondary-text);
+}
+
+.u-inline {
+  display: inline-block;
+}
+
+/* ============================
+   Responsive
+   ============================ */
+@media (max-width: 768px) {
+  body {
+    padding: 16px;
+  }
+
+  form#appointment-form {
+    padding: 16px;
+  }
+
+  .appointments-table thead th,
+  .appointments-table tbody td {
+    padding: 10px 12px;
+    font-size: 0.975rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ============================
+   Print (optional)
+   ============================ */
+@media print {
+  body {
+    background: #fff;
+  }
+  .card,
+  form#appointment-form,
+   .appointments-table {
+    box-shadow: none;
+    border-color: #ccc;
+  }
+}

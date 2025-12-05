@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>MediHealth Appointments</title>
+  <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+  <h1>MediHealth Appointments</h1>
+
+  <!-- Appointment form -->
+  <form id="appointment-form">
+    <!-- Input for the patients name-->
+    <label for="patient_name">Patient Name:</label>
+    <input id="patient_name" name="patient_name" type="text" required>
+
+    <!-- Input for the patients email-->
+    <label for="patient_email">Patient Email:</label>
+    <input id="patient_email" name="patient_email" type="email" required>
+
+    <!-- Input for the patients age-->
+    <label for="patient_age">Patient Age:</label>
+    <input id="patient_age" name="patient_age" type="number" min="0" max="130" required>
+
+    <!-- Input for the patients number-->
+    <label for="patient_number">Patient Number:</label>
+    <input id="patient_number" name="patient_number" type="text" required>
+
+    <!-- Input for the appointment time-->
+    <label for="appointment_at">Appointment At:</label>
+    <input id="appointment_at" name="appointment_at" type="datetime-local" required>
+
+    <!-- Input for the reason of visit-->
+    <label for="reason_for_visit">Reason For Visit:</label>
+    <input id="reason_for_visit" name="reason_for_visit" type="text" required>
+
+    <button type="submit">Book appointment</button>
+  </form>
+
+<h2>All appointments</h2>
+
+<!-- Table for appointments -->
+<table id="appointments-table" class="appointments-table">
+  <thead>
+    <tr>
+      <th>Patient Name</th>
+      <th>Email</th>
+      <th>Age</th>
+      <th>Phone/Number</th>
+      <th>Appointment Time</th>
+      <th>Reason for Visit</th>
+    </tr>
+  </thead>
+  <tbody id="appointments-table-body">
+    <!-- Rows will be injected by loadAppointments() -->
+  </tbody>
+</table>
+
+
+  <!-- Load your JavaScript from the static folder -->
+  <script src="static/app.js"></script>
+</body>
+</html>
